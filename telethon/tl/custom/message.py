@@ -197,6 +197,9 @@ class Message(ChatGetter, SenderGetter, TLObject):
             forwards: Optional[int] = None,
             replies: Optional[types.TypeMessageReplies] = None,
 
+            noforwards: Optional[bool] = None,
+            reactions: Optional[object] = None,
+
             # For MessageAction (mandatory)
             action: Optional[types.TypeMessageAction] = None
     ):
@@ -229,6 +232,10 @@ class Message(ChatGetter, SenderGetter, TLObject):
         self.grouped_id = grouped_id
         self.restriction_reason = restriction_reason
         self.ttl_period = ttl_period
+
+        self.noforwards = noforwards
+        self.reactions = reactions
+
         self.action = action
 
         # Convenient storage for custom functions
